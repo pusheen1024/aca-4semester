@@ -364,7 +364,7 @@ bool delete_elem(int x, tree *&tr) {
 
 void preorder(tree *tr) { // прямой обход
     if (tr == NULL) return;
-    cout << tr->x << ' ';
+    cout << tr->x << ' ' << color(tr) << '\n';
 	preorder(tr->left);
     preorder(tr->right);
 }
@@ -372,7 +372,7 @@ void preorder(tree *tr) { // прямой обход
 void inorder(tree *tr) { // симметричный обход
     if (tr == NULL) return;
     inorder(tr->left);
-    cout << tr->x << ' ';
+    cout << tr->x << ' ' << color(tr) << '\n';
     inorder(tr->right);
 }
 
@@ -380,7 +380,7 @@ void postorder(tree *tr) { // обратный обход
     if (tr == NULL) return;
 	postorder(tr->left);
     postorder(tr->right);
-    cout << tr->x << ' ';
+    cout << tr->x << ' ' << color(tr) << '\n';
 }
 
 tree *tr = NULL;
@@ -401,9 +401,8 @@ void solve(bool &finish) {
 			cout << "Введите элемент, который хотите вставить: ";
 			cin >> val;
 			insert(val, tr, tr);
-			cout << "Прямой обход: ";
+			cout << "Прямой обход:" << '\n';
 			preorder(tr);
-			cout << '\n';
 			break;
 		}
 		case 2: {
@@ -413,27 +412,23 @@ void solve(bool &finish) {
 			if (! delete_elem(val, tr))
 				cout << "Такого элемента не существует в дереве." << '\n';
 			else cout << "Элемент успешно удалён." << '\n';
-			cout << "Прямой обход: ";
+			cout << "Прямой обход:" << '\n';
 			preorder(tr);
-			cout << '\n';
 			break;
 		}
 		case 3: {
-			cout << "Прямой обход: ";
+			cout << "Прямой обход:" << '\n';
 			preorder(tr);
-			cout << '\n';
 			break;
 		}
 		case 4: {
-			cout << "Симметричный обход: ";
+			cout << "Симметричный обход:" << '\n';
 			inorder(tr);
-			cout << '\n';
 			break;
 		}
 		case 5: {
-			cout << "Обратный обход: ";
+			cout << "Обратный обход:" << '\n';
 			postorder(tr);
-			cout << '\n';
 			break;
 		}
 		case 0: {
@@ -445,7 +440,6 @@ void solve(bool &finish) {
 			break;
 		}
 	}
-
 }
 
 int main() {
